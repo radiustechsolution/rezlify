@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
+import { TopSalesAlert } from "./components/top-sales-alert";
+import { Navbar } from "./components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +28,52 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-screen bg-background text-foreground">
+        <TopSalesAlert />
+        <Navbar />
+        <Providers>{children}</Providers>
+        {/* Footer */}
+        <footer className="bg-black px-3 xl:px-0 mt-30 pt-20 pb-10 text-white w-full flex flex-col justify-center items-center">
+          <div className="max-w-297.5 flex flex-col md:flex-row items-start justify-between gap-4 w-full">
+            <div className="flex flex-col gap-1 ">
+              <p className="text-[20px] font-semibold">RezLify</p>
+              <p className="">Subscribe</p>
+              <p>Get 10% off your first order</p>
+            </div>
+            <div className="">
+              <p className="text-[20px] font-semibold">Support</p>
+              <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <p>exclusive@gmail.com</p>
+              <p>+88015-88888-9999</p>
+            </div>
+            <div className="">
+              <p className="text-[20px] font-semibold">Account</p>
+              <ul className="flex flex-col gap-2.5">
+                <li>My Account</li>
+                <li>Login / Register</li>
+                <li>Cart</li>
+                <li>Wishlist</li>
+                <li>Shop</li>
+              </ul>
+            </div>
+            <div className="">
+              <p className="text-[20px] font-semibold">Quick Links</p>
+              <ul className="flex flex-col gap-2.5">
+                <li>Privacy Policy</li>
+                <li>Terms Of Use</li>
+                <li>FAQ</li>
+                <li>Contact</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-[14px] pt-10 opacity-55">
+            © Copyright Rimel 2022. All right reserved
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }
