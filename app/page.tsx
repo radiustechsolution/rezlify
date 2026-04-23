@@ -10,6 +10,7 @@ import { BestSelling } from "./components/best-selling";
 import { SingleBanner } from "./components/single-banner";
 import { OurProducts } from "./components/our-products";
 import { Featured } from "./components/featured";
+import { TrustComp } from "./components/trust";
 
 export default function Home() {
   const { theme, resolvedTheme } = useTheme();
@@ -63,6 +64,8 @@ export default function Home() {
 
       {/* Featured */}
       <Featured />
+
+      <TrustComp />
     </div>
   );
 }

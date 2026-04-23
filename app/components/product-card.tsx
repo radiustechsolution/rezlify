@@ -29,7 +29,7 @@ export const ProductCard = ({
           className={`${!settings?.grid && "w-47"} flex flex-col relative gap-1 group`}
         >
           <div
-            className={`${settings?.grid ? "h-50" : "h-43"} relative flex items-center justify-center bg-[#ececec] ${!settings?.grid && "w-47"}`}
+            className={`${settings?.grid ? "h-50" : "h-43"} relative flex items-center justify-center bg-[#e1e1e1] ${!settings?.grid && "w-47"}`}
           >
             <img
               src={v.image}
