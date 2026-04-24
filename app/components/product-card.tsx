@@ -4,6 +4,7 @@ import {
 } from "react-icons/md";
 import { RxEyeOpen } from "react-icons/rx";
 import { addToCart } from "../helpers/cart-helper";
+import Link from "next/link";
 
 type data = {
   id: number;
@@ -33,6 +34,7 @@ export const ProductCard = ({
             className={`${settings?.grid ? "h-50" : "h-43"} relative flex items-center justify-center bg-[#e1e1e1] ${!settings?.grid && "w-47"}`}
           >
             <img
+              role="presentation"
               src={v.image}
               className={`${settings?.grid ? "w-34" : " w-29"}`}
               alt=""
@@ -42,7 +44,7 @@ export const ProductCard = ({
             <div
               role="presentation"
               onClick={() => addToCart({ item: v })}
-              className="absolute cursor-pointer group-hover:opacity-100 opacity-0 bottom-0 bg-black text-center w-full py-2 transition-opacity duration-300"
+              className="absolute cursor-pointer group-hover:opacity-100 opacity-100 md:opacity-0 bottom-0 bg-black text-center w-full py-2 transition-opacity duration-300"
             >
               <p className="text-white text-[12px]">Add To Cart</p>
             </div>

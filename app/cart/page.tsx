@@ -130,6 +130,7 @@ export default function CartPage() {
                   <p className="text-[14px]">Subtotal:</p>
                   <p>
                     {" "}
+                    ₦
                     {cart
                       .reduce(
                         (sum, item) => sum + item.price * item.quantity,

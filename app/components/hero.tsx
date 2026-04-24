@@ -43,7 +43,7 @@ export const Hero = () => {
             ))}
           </div>
         </div>
-        <div className="basis-full py-10 sm:py-0 gap-15 sm:gap-0 px-10 md:px-20 flex flex-col sm:flex-row items-center justify-between lg:basis-[83%] h-max sm:h-63 mt-3 lg:mt-5 lg:ml-5 bg-black">
+        <div className="basis-full py-10 sm:py-0 gap-15 sm:gap-0 px-10 md:px-20 flex flex-col sm:flex-row items-center justify-between lg:basis-[83%] h-max sm:h-63 mt-0 md:mt-3 lg:mt-5 lg:ml-5 bg-black">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <img src="./apple.png" alt="" className="w-8" />

@@ -28,9 +28,12 @@ export const Navbar = () => {
       <div className="flex py-4 px-4 xl:px-0 max-w-292.5 items-center justify-between w-full gap-6">
         {/* Logo */}
         <div className="cursor-pointer shrink-0">
-          <p className="font-bold text-[22px] sm:text-[24px] tracking-tight">
+          <Link
+            className="font-bold text-[22px] sm:text-[24px] tracking-tight"
+            href={"/"}
+          >
             RezLify
-          </p>
+          </Link>
         </div>
 
         {/* Menu */}
