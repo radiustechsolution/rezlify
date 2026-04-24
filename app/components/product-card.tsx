@@ -3,6 +3,7 @@ import {
   MdOutlineStarPurple500,
 } from "react-icons/md";
 import { RxEyeOpen } from "react-icons/rx";
+import { addToCart } from "../helpers/cart-helper";
 
 type data = {
   id: number;
@@ -38,7 +39,11 @@ export const ProductCard = ({
             />
 
             {/* Add to Cart */}
-            <div className="absolute cursor-pointer group-hover:opacity-100 opacity-0 bottom-0 bg-black text-center w-full py-2 transition-opacity duration-300">
+            <div
+              role="presentation"
+              onClick={() => addToCart({ item: v })}
+              className="absolute cursor-pointer group-hover:opacity-100 opacity-0 bottom-0 bg-black text-center w-full py-2 transition-opacity duration-300"
+            >
               <p className="text-white text-[12px]">Add To Cart</p>
             </div>
           </div>

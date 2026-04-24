@@ -42,9 +42,9 @@ export default function RootLayout({
         <Providers>{children}</Providers>
         {/* Footer */}
         <footer className="bg-black px-6 xl:px-0 mt-30 pt-20 pb-10 text-white w-full flex flex-col justify-center items-center">
-          <div className="max-w-[1170px] flex flex-col md:flex-row items-start justify-between gap-10 w-full">
+          <div className="max-w-292.5 flex flex-col md:flex-row items-start justify-between gap-10 w-full">
             {/* Brand + Subscribe */}
-            <div className="flex flex-col gap-4 max-w-[217px]">
+            <div className="flex flex-col gap-4 max-w-54.25">
               <p className="text-[24px] font-bold tracking-wide">RezLify</p>
               <div>
                 <p className="font-semibold text-[16px] mb-3">Subscribe</p>
@@ -57,7 +57,7 @@ export default function RootLayout({
                     placeholder="Enter your email"
                     className="bg-transparent text-[14px] text-white placeholder-white/40 outline-none flex-1 min-w-0"
                   />
-                  <button className="text-white hover:opacity-70 transition-opacity flex-shrink-0">
+                  <button className="text-white hover:opacity-70 transition-opacity shrink-0">
                     <Send size={16} />
                   </button>
                 </div>
@@ -67,7 +67,7 @@ export default function RootLayout({
             {/* Support */}
             <div className="flex flex-col gap-4">
               <p className="text-[20px] font-semibold">Support</p>
-              <div className="flex flex-col gap-3 text-[14px] text-white/80 max-w-[175px]">
+              <div className="flex flex-col gap-3 text-[14px] text-white/80 max-w-43.75">
                 <p>
                   111 Bijoy sarani, Dhaka,
                   <br />
@@ -144,7 +144,7 @@ export default function RootLayout({
           </div>
 
           {/* Divider */}
-          <div className="max-w-[1170px] w-full border-t border-white/20 mt-10 pt-6">
+          <div className="max-w-292.5 w-full border-t border-white/20 mt-10 pt-6">
             <p className="text-center text-[14px] text-white/50">
               © Copyright Rimel 2022. All right reserved
             </p>
