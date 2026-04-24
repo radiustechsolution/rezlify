@@ -4,6 +4,11 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { TopSalesAlert } from "./components/top-sales-alert";
 import { Navbar } from "./components/navbar";
+import { Send } from "lucide-react";
+import { BsTwitterX } from "react-icons/bs";
+import { CiLinkedin } from "react-icons/ci";
+import { FaInstagram } from "react-icons/fa";
+import { GrFacebookOption } from "react-icons/gr";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,42 +41,114 @@ export default function RootLayout({
         <Navbar />
         <Providers>{children}</Providers>
         {/* Footer */}
-        <footer className="bg-black px-3 xl:px-0 mt-30 pt-20 pb-10 text-white w-full flex flex-col justify-center items-center">
-          <div className="max-w-297.5 flex flex-col md:flex-row items-start justify-between gap-4 w-full">
-            <div className="flex flex-col gap-1 ">
-              <p className="text-[20px] font-semibold">RezLify</p>
-              <p className="">Subscribe</p>
-              <p>Get 10% off your first order</p>
+        <footer className="bg-black px-6 xl:px-0 mt-30 pt-20 pb-10 text-white w-full flex flex-col justify-center items-center">
+          <div className="max-w-[1170px] flex flex-col md:flex-row items-start justify-between gap-10 w-full">
+            {/* Brand + Subscribe */}
+            <div className="flex flex-col gap-4 max-w-[217px]">
+              <p className="text-[24px] font-bold tracking-wide">RezLify</p>
+              <div>
+                <p className="font-semibold text-[16px] mb-3">Subscribe</p>
+                <p className="text-[14px] text-white/80 mb-4">
+                  Get 10% off your first order
+                </p>
+                <div className="flex items-center border border-white/50 rounded px-3 py-2 gap-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="bg-transparent text-[14px] text-white placeholder-white/40 outline-none flex-1 min-w-0"
+                  />
+                  <button className="text-white hover:opacity-70 transition-opacity flex-shrink-0">
+                    <Send size={16} />
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="">
+
+            {/* Support */}
+            <div className="flex flex-col gap-4">
               <p className="text-[20px] font-semibold">Support</p>
-              <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
-              <p>exclusive@gmail.com</p>
-              <p>+88015-88888-9999</p>
+              <div className="flex flex-col gap-3 text-[14px] text-white/80 max-w-[175px]">
+                <p>
+                  111 Bijoy sarani, Dhaka,
+                  <br />
+                  DH 1515, Bangladesh.
+                </p>
+                <p>exclusive@gmail.com</p>
+                <p>+88015-88888-9999</p>
+              </div>
             </div>
-            <div className="">
+
+            {/* Account */}
+            <div className="flex flex-col gap-4">
               <p className="text-[20px] font-semibold">Account</p>
-              <ul className="flex flex-col gap-2.5">
-                <li>My Account</li>
-                <li>Login / Register</li>
-                <li>Cart</li>
-                <li>Wishlist</li>
-                <li>Shop</li>
+              <ul className="flex flex-col gap-2.5 text-[14px] text-white/80">
+                {[
+                  "My Account",
+                  "Login / Register",
+                  "Cart",
+                  "Wishlist",
+                  "Shop",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="">
-              <p className="text-[20px] font-semibold">Quick Links</p>
-              <ul className="flex flex-col gap-2.5">
-                <li>Privacy Policy</li>
-                <li>Terms Of Use</li>
-                <li>FAQ</li>
-                <li>Contact</li>
+
+            {/* Quick Links */}
+            <div className="flex flex-col gap-4">
+              <p className="text-[20px] font-semibold">Quick Link</p>
+              <ul className="flex flex-col gap-2.5 text-[14px] text-white/80">
+                {["Privacy Policy", "Terms Of Use", "FAQ", "Contact"].map(
+                  (item) => (
+                    <li
+                      key={item}
+                      className="hover:text-white cursor-pointer transition-colors"
+                    >
+                      {item}
+                    </li>
+                  ),
+                )}
               </ul>
+            </div>
+
+            {/* Download App */}
+            <div className="flex flex-col gap-4">
+              <p className="text-[20px] font-semibold">Download App</p>
+              <p className="text-[12px] text-white/60">
+                Save $3 with App New User Only
+              </p>
+              <div className="flex flex-row gap-3 items-center">
+                {/* QR Code */}
+                <div className="w-19 h-19 shrink-0">
+                  <img src="./qrcode.png" alt="" />
+                </div>
+                {/* Badges */}
+                <div className="flex flex-col gap-2">
+                  <img src="./playstore.png" alt="" />
+                  <img src="./applestore.png" alt="" />
+                </div>
+              </div>
+              {/* Social Icons */}
+              <div className="flex gap-4 mt-1">
+                <GrFacebookOption />
+                <BsTwitterX />
+                <FaInstagram />
+                <CiLinkedin />
+              </div>
             </div>
           </div>
-          <p className="text-center text-[14px] pt-10 opacity-55">
-            © Copyright Rimel 2022. All right reserved
-          </p>
+
+          {/* Divider */}
+          <div className="max-w-[1170px] w-full border-t border-white/20 mt-10 pt-6">
+            <p className="text-center text-[14px] text-white/50">
+              © Copyright Rimel 2022. All right reserved
+            </p>
+          </div>
         </footer>
       </body>
     </html>
