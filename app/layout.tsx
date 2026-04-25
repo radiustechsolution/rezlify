@@ -36,10 +36,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="h-svh bg-background text-foreground">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         <TopSalesAlert />
         <Navbar />
-        <Providers>{children}</Providers>
+        <Providers>
+          <main className="flex-1">{children}</main>
+        </Providers>
         {/* Footer */}
         <footer className="bg-black px-6 xl:px-0 mt-30 pt-20 pb-10 text-white w-full flex flex-col justify-center items-center">
           <div className="max-w-292.5 flex flex-col md:flex-row items-start justify-between gap-10 w-full">

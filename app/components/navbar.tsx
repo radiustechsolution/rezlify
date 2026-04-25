@@ -5,6 +5,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { RiSearch2Line } from "react-icons/ri";
 import { getFromCart } from "../helpers/cart-helper";
 import Link from "next/link";
+import { IoIosMenu } from "react-icons/io";
 
 export const Navbar = () => {
   const [cart, setCart] = useState<any>([]);
@@ -27,7 +28,8 @@ export const Navbar = () => {
     <div className="w-full sticky top-0 bg-accent-foreground z-20 border-b border-black/10 shadow-sm flex flex-col items-center">
       <div className="flex py-4 px-4 xl:px-0 max-w-292.5 items-center justify-between w-full gap-6">
         {/* Logo */}
-        <div className="cursor-pointer shrink-0">
+        <div className="cursor-pointer shrink-0 flex items-center gap-3">
+          <IoIosMenu className="lg:hidden" size={26} />
           <Link
             className="font-bold text-[22px] sm:text-[24px] tracking-tight"
             href={"/"}
@@ -60,24 +62,30 @@ export const Navbar = () => {
             <RiSearch2Line size={16} className="text-black/50 shrink-0" />
           </div>
 
-          {/* Wishlist */}
-          <button className="p-1.5 rounded-full hover:bg-black/5 transition-colors duration-150">
-            <MdOutlineFavoriteBorder size={22} />
-          </button>
+          <div className="flex items-center gap-0">
+            {/* Search */}
+            <button className="p-1.5 rounded-full hover:bg-black/5 transition-colors duration-150">
+              <RiSearch2Line size={24} />
+            </button>
 
-          {/* Cart */}
-          {cart.length > 0 && (
+            {/* Wishlist */}
+            <button className="p-1.5 rounded-full hover:bg-black/5 transition-colors duration-150">
+              <MdOutlineFavoriteBorder size={24} />
+            </button>
+
+            {/* Cart */}
             <Link
               href={"/cart"}
               className="relative p-1.5 rounded-full hover:bg-black/5 transition-colors duration-150"
             >
-              <IoCartOutline size={22} />
-
-              <span className="absolute -top-0.5 -right-0.5 min-w-4.5 h-4.5 px-1 rounded-full bg-red-500 flex items-center justify-center text-white font-bold text-[10px] leading-none">
-                {cart.length}
-              </span>
+              <IoCartOutline size={24} />
+              {cart.length > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 min-w-4.5 h-4.5 px-1 rounded-full bg-red-500 flex items-center justify-center text-white font-bold text-[10px] leading-none">
+                  {cart.length}
+                </span>
+              )}
             </Link>
-          )}
+          </div>
         </div>
       </div>
     </div>
