@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+#   {/* Add to Cart */}
+#             {/* <div
+#               role="presentation"
+#               onClick={() => addToCart({ item: v })}
+#               className="absolute cursor-pointer group-hover:opacity-100 opacity-100 md:opacity-0 bottom-0 bg-black text-center w-full py-2 transition-opacity duration-300"
+#             >
+#               <p className="text-white text-[12px]">Add To Cart</p>
+#             </div> */}

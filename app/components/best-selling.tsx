@@ -3,45 +3,7 @@ import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import { TitleComp } from "./title-comp";
 import { ProductCard } from "./product-card";
 import { ButtonComp } from "./button";
-
-const bestSellingData = [
-  {
-    id: 1,
-    title: "The north coat",
-    price: 260,
-    slashed: 360,
-    discounted: "-35%",
-    image: "./demo/top.png",
-    rating: 65,
-  },
-  {
-    id: 2,
-    title: "Gucci duffle bag",
-    price: 960,
-    slashed: 1160,
-    discounted: "-40%",
-    image: "./demo/bag.png",
-    rating: 55,
-  },
-  {
-    id: 3,
-    title: "RGB liquid CPU Cooler",
-    price: 160,
-    slashed: 170,
-    discounted: "-30%",
-    image: "./demo/speaker.png",
-    rating: 99,
-  },
-  {
-    id: 4,
-    title: "Small BookSelf",
-    price: 360,
-    slashed: 450,
-    discounted: "-25%",
-    image: "./demo/desk.png",
-    rating: 99,
-  },
-];
+import { demoProducts } from "../demo/products";
 
 export const BestSelling = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -77,7 +39,10 @@ export const BestSelling = () => {
 
         {/* Carousel of products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-3 md:gap-5">
-          <ProductCard settings={{ grid: true }} data={bestSellingData} />
+          <ProductCard
+            settings={{ grid: true }}
+            data={demoProducts.bestSellingProducts}
+          />
         </div>
       </div>
     </div>

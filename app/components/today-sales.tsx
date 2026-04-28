@@ -2,117 +2,8 @@ import { useRef } from "react";
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import { TitleComp } from "./title-comp";
 import { ProductCard } from "./product-card";
+import { demoProducts } from "../demo/products";
 
-const todaysProductData = [
-  {
-    id: 1,
-    title: "AK-900 Wired Keyboard",
-    price: 960,
-    slashed: 1160,
-    discounted: "-35%",
-    image: "./demo/keyboard.png",
-    rating: 75,
-  },
-  {
-    id: 2,
-    title: "HAVIT HV-G92 Gamepad",
-    price: 120,
-    slashed: 160,
-    discounted: "-40%",
-    image: "./demo/game-pad.png",
-    rating: 88,
-  },
-  {
-    id: 3,
-    title: "IPS LCD Gaming Monitor",
-    price: 370,
-    slashed: 400,
-    discounted: "-30%",
-    image: "./demo/lg-tv.png",
-    rating: 99,
-  },
-  {
-    id: 4,
-    title: "S-Series Comfort Chair ",
-    price: 375,
-    slashed: 400,
-    discounted: "-25%",
-    image: "./demo/chair.png",
-    rating: 99,
-  },
-  {
-    id: 1,
-    title: "AK-900 Wired Keyboard",
-    price: 960,
-    slashed: 1160,
-    discounted: "-35%",
-    image: "./demo/keyboard.png",
-    rating: 75,
-  },
-  {
-    id: 2,
-    title: "HAVIT HV-G92 Gamepad",
-    price: 120,
-    slashed: 160,
-    discounted: "-40%",
-    image: "./demo/game-pad.png",
-    rating: 88,
-  },
-  {
-    id: 3,
-    title: "IPS LCD Gaming Monitor",
-    price: 370,
-    slashed: 400,
-    discounted: "-30%",
-    image: "./demo/lg-tv.png",
-    rating: 99,
-  },
-  {
-    id: 4,
-    title: "S-Series Comfort Chair ",
-    price: 375,
-    slashed: 400,
-    discounted: "-25%",
-    image: "./demo/chair.png",
-    rating: 99,
-  },
-  {
-    id: 1,
-    title: "AK-900 Wired Keyboard",
-    price: 960,
-    slashed: 1160,
-    discounted: "-35%",
-    image: "./demo/keyboard.png",
-    rating: 75,
-  },
-  {
-    id: 2,
-    title: "HAVIT HV-G92 Gamepad",
-    price: 120,
-    slashed: 160,
-    discounted: "-40%",
-    image: "./demo/game-pad.png",
-    rating: 88,
-  },
-  {
-    id: 3,
-    title: "IPS LCD Gaming Monitor",
-    price: 370,
-    slashed: 400,
-    discounted: "-30%",
-    image: "./demo/lg-tv.png",
-    rating: 99,
-  },
-  {
-    id: 4,
-    title: "S-Series Comfort Chair ",
-    price: 375,
-    slashed: 400,
-    discounted: "-25%",
-    image: "./demo/chair.png",
-    rating: 99,
-  },
-];
 export const TodaysSales = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -183,7 +74,7 @@ export const TodaysSales = () => {
           ref={scrollRef}
           className="overflow-x-auto flex mt-2 items-start gap-5 w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          <ProductCard data={todaysProductData} />
+          <ProductCard data={demoProducts.todaysProduct} />
         </div>
       </div>
 

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   MdOutlineFavoriteBorder,
   MdOutlineStarPurple500,
@@ -5,6 +7,9 @@ import {
 import { RxEyeOpen } from "react-icons/rx";
 import { addToCart } from "../helpers/cart-helper";
 import Link from "next/link";
+import { Skeleton } from "@heroui/react";
+import { useEffect, useRef, useState } from "react";
+import { ProductImageFallback } from "../helpers/ProductImageFallback";
 
 type data = {
   id: number;
@@ -12,8 +17,54 @@ type data = {
   price: number;
   slashed: number;
   discounted: string;
-  image: string;
+  image: any;
   rating: number;
+};
+
+const ProductImage = ({ src, isGrid }: { src: string; isGrid: boolean }) => {
+  const [status, setStatus] = useState<"loading" | "loaded" | "error">(
+    "loading",
+  );
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      if (imgRef.current.naturalWidth === 0) {
+        setStatus("error");
+      } else {
+        setStatus("loaded");
+      }
+    }
+  }, []);
+
+  return (
+    <div className="relative w-full h-full">
+      {/* Skeleton: only shown while loading */}
+      {status === "loading" && (
+        <Skeleton className="absolute inset-0 w-full h-full rounded-none z-10" />
+      )}
+
+      {/* Fallback: shown on error, sits above the hidden img */}
+      {status === "error" && (
+        <ProductImageFallback className="absolute inset-0 w-full h-full z-10" />
+      )}
+
+      {/* Image: always mounted so onLoad/onError always fire, hidden until loaded */}
+      {status !== "error" && (
+        <img
+          ref={imgRef}
+          role="presentation"
+          src={src}
+          alt=""
+          onLoad={() => setStatus("loaded")}
+          onError={() => setStatus("error")}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            status === "loaded" ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      )}
+    </div>
+  );
 };
 
 export const ProductCard = ({
@@ -26,31 +77,20 @@ export const ProductCard = ({
   return (
     <>
       {data.map((v, i) => (
-        <div
+        <Link
+          prefetch
+          href={`/${v.id}`}
           key={i}
           className={`${!settings?.grid && "w-47"} flex flex-col relative gap-1 group`}
         >
           <div
-            className={`${settings?.grid ? "h-50" : "h-43"} relative flex items-center justify-center bg-[#e1e1e1] ${!settings?.grid && "w-47"}`}
+            className={`${settings?.grid ? "h-50" : "h-43"} relative flex items-center justify-center bg-[#e1e1e1] overflow-hidden ${!settings?.grid && "w-47"}`}
           >
-            <img
-              role="presentation"
-              src={v.image}
-              className={`${settings?.grid ? "w-34" : " w-29"}`}
-              alt=""
-            />
-
-            {/* Add to Cart */}
-            <div
-              role="presentation"
-              onClick={() => addToCart({ item: v })}
-              className="absolute cursor-pointer group-hover:opacity-100 opacity-100 md:opacity-0 bottom-0 bg-black text-center w-full py-2 transition-opacity duration-300"
-            >
-              <p className="text-white text-[12px]">Add To Cart</p>
-            </div>
+            <ProductImage src={v.image.img1} isGrid={!!settings?.grid} />
           </div>
+
           <p
-            className={`${settings?.grid ? "text-[15x]" : "text-[13px]"} font-bold mt-2`}
+            className={`${settings?.grid ? "text-[15px]" : "text-[13px]"} font-bold mt-2`}
           >
             {v.title}
           </p>
@@ -86,7 +126,7 @@ export const ProductCard = ({
               <RxEyeOpen size={15} />
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );

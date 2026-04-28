@@ -3,81 +3,7 @@ import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import { TitleComp } from "./title-comp";
 import { ProductCard } from "./product-card";
 import { ButtonComp } from "./button";
-
-const bestSellingData = [
-  {
-    id: 1,
-    title: "The north coat",
-    price: 260,
-    slashed: 360,
-    discounted: "-35%",
-    image: "./demo/top.png",
-    rating: 65,
-  },
-  {
-    id: 2,
-    title: "Gucci duffle bag",
-    price: 960,
-    slashed: 1160,
-    discounted: "-40%",
-    image: "./demo/bag.png",
-    rating: 55,
-  },
-  {
-    id: 3,
-    title: "RGB liquid CPU Cooler",
-    price: 160,
-    slashed: 170,
-    discounted: "-30%",
-    image: "./demo/speaker.png",
-    rating: 99,
-  },
-  {
-    id: 4,
-    title: "Small BookSelf",
-    price: 360,
-    slashed: 450,
-    discounted: "-25%",
-    image: "./demo/desk.png",
-    rating: 99,
-  },
-  {
-    id: 5,
-    title: "AK-900 Wired Keyboard",
-    price: 960,
-    slashed: 1160,
-    discounted: "-35%",
-    image: "./demo/keyboard.png",
-    rating: 75,
-  },
-  {
-    id: 6,
-    title: "HAVIT HV-G92 Gamepad",
-    price: 120,
-    slashed: 160,
-    discounted: "-40%",
-    image: "./demo/game-pad.png",
-    rating: 88,
-  },
-  {
-    id: 7,
-    title: "IPS LCD Gaming Monitor",
-    price: 370,
-    slashed: 400,
-    discounted: "-30%",
-    image: "./demo/lg-tv.png",
-    rating: 99,
-  },
-  {
-    id: 8,
-    title: "S-Series Comfort Chair ",
-    price: 375,
-    slashed: 400,
-    discounted: "-25%",
-    image: "./demo/chair.png",
-    rating: 99,
-  },
-];
+import { demoProducts } from "../demo/products";
 
 export const OurProducts = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -108,7 +34,10 @@ export const OurProducts = () => {
 
         {/* Our products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-3 md:gap-5">
-          <ProductCard settings={{ grid: true }} data={bestSellingData} />
+          <ProductCard
+            settings={{ grid: true }}
+            data={demoProducts.ourProducts}
+          />
         </div>
       </div>
       <div>
